@@ -16,7 +16,7 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.similarities.BM25Similarity;
-import org.apache.lucene.search.similarities.DefaultSimilarity;
+import org.apache.lucene.search.similarities.ClassicSimilarity;
 import org.apache.lucene.search.similarities.LMDirichletSimilarity;
 import org.apache.lucene.search.similarities.LMJelinekMercerSimilarity;
 
@@ -123,7 +123,7 @@ public class CompareAlgorithms {
 		ca.getTask1().getSearcher().setSimilarity(new BM25Similarity());
 		performRank(ca.getQueryList(), ca.getTask1().getSearcher(), ROOT + bm25Short, Type.SHORT);
 		performRank(ca.getQueryList(), ca.getTask1().getSearcher(), ROOT + bm25Long, Type.LONG);
-		ca.getTask1().getSearcher().setSimilarity(new DefaultSimilarity());
+		ca.getTask1().getSearcher().setSimilarity(new ClassicSimilarity());
 		performRank(ca.getQueryList(), ca.getTask1().getSearcher(), ROOT + vsmShort, Type.SHORT);
 		performRank(ca.getQueryList(), ca.getTask1().getSearcher(), ROOT + vsmLong, Type.LONG);
 		ca.getTask1().getSearcher().setSimilarity(new LMDirichletSimilarity());
